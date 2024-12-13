@@ -1,3 +1,4 @@
+import ActionButton from "@/shared/ActionButton";
 import HText from "@/shared/HText";
 import { BenefitType, SelectedPage } from "@/shared/types";
 import {
@@ -6,13 +7,8 @@ import {
   AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
+import BenefitsPageGraphic from "@/assets/BenefitsPageGraphic.png";
 import Benefit from "./Benefit";
-import ActionButton from "@/shared/ActionButton";
-import BenefitsPageGraphics from "@/assets/BenefitsPageGraphic.png"
-
-type Props = {
-  setSelectedPage: (value: SelectedPage) => void;
-};
 
 const benefits: Array<BenefitType> = [
   {
@@ -38,8 +34,12 @@ const benefits: Array<BenefitType> = [
 const container = {
   hidden: {},
   visible: {
-    transmition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.2 },
   },
+};
+
+type Props = {
+  setSelectedPage: (value: SelectedPage) => void;
 };
 
 const Benefits = ({ setSelectedPage }: Props) => {
@@ -48,13 +48,13 @@ const Benefits = ({ setSelectedPage }: Props) => {
       <motion.div
         onViewportEnter={() => setSelectedPage(SelectedPage.Benefits)}
       >
-        {/* Header */}
+        {/* HEADER */}
         <motion.div
           className="md:my-5 md:w-3/5"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
-          transition={{duration:0.5}}
+          transition={{ duration: 0.5 }}
           variants={{
             hidden: { opacity: 0, x: -50 },
             visible: { opacity: 1, x: 0 },
@@ -68,13 +68,13 @@ const Benefits = ({ setSelectedPage }: Props) => {
           </p>
         </motion.div>
 
-        {/* Benefits */}
+        {/* BENEFITS */}
         <motion.div
+          className="mt-5 items-center justify-between gap-8 md:flex"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           variants={container}
-          className="mt-5 items-center justify-between gap-8 md:flex"
         >
           {benefits.map((benefit: BenefitType) => (
             <Benefit
@@ -87,44 +87,49 @@ const Benefits = ({ setSelectedPage }: Props) => {
           ))}
         </motion.div>
 
-        {/* graphics and description */}
-
+        {/* GRAPHICS AND DESCRIPTION */}
         <div className="mt-16 items-center justify-between gap-20 md:mt-28 md:flex">
-          {/* graphic */}
-          <img  className="mx-auto" alt="benefits-page-graphics" src={BenefitsPageGraphics}/>
+          {/* GRAPHIC */}
+          <img
+            className="mx-auto"
+            alt="benefits-page-graphic"
+            src={BenefitsPageGraphic}
+          />
 
-          {/* description */}
-
+          {/* DESCRIPTION */}
           <div>
-            {/* title */}
-            <motion.div className="relative"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{duration:0.5}}
-            variants={{
-              hidden: { opacity: 0, x: 50 },
-              visible: { opacity: 1, x: 0 },
-            }}>
-              <div className="before:absolute before:-top-20 before:-left-20 before:z-[-1] before:content-abstractwaves">
-                <div>
+            {/* TITLE */}
+            <div className="relative">
+              <div className="before:absolute before:-top-20 before:-left-20 before:z-[1] before:content-abstractwaves">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.5 }}
+                  variants={{
+                    hidden: { opacity: 0, x: 50 },
+                    visible: { opacity: 1, x: 0 },
+                  }}
+                >
                   <HText>
-                    MILIONS OF HAPPY MEMBERS GETTING {"  "}
-                    <span className="text-primary-500">FIT.</span>
+                    MILLIONS OF HAPPY MEMBERS GETTING{" "}
+                    <span className="text-primary-500">FIT</span>
                   </HText>
-                </div>
+                </motion.div>
               </div>
-            </motion.div>
-            {/* description */}
+            </div>
+
+            {/* DESCRIPT */}
             <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.5 }}
-            transition={{delay:0.2,duration:0.5}}
-            variants={{
-              hidden: { opacity: 0, x: -50 },
-              visible: { opacity: 1, x: 0 },
-            }}>
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              variants={{
+                hidden: { opacity: 0, x: 50 },
+                visible: { opacity: 1, x: 0 },
+              }}
+            >
               <p className="my-5">
                 Nascetur aenean massa auctor tincidunt. Iaculis potenti amet
                 egestas ultrices consectetur adipiscing ultricies enim. Pulvinar
@@ -140,7 +145,8 @@ const Benefits = ({ setSelectedPage }: Props) => {
                 enim mattis odio in risus nunc.
               </p>
             </motion.div>
-            {/* button */}
+
+            {/* BUTTON */}
             <div className="relative mt-16">
               <div className="before:absolute before:-bottom-20 before:right-40 before:z-[-1] before:content-sparkles">
                 <ActionButton setSelectedPage={setSelectedPage}>

@@ -1,26 +1,57 @@
+// {
+//   "compilerOptions": {
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+
+//     /* Bundler mode */
+//     "moduleResolution": "bundler",
+//     "allowImportingTsExtensions": true,
+//     "isolatedModules": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+
+//     /* Linting */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "noUncheckedSideEffectImports": true
+//   },
+//   "include": ["src"]
+// }
+
+
 {
   "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2020",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo", // For build info storage
+    "target": "ES2020", // Targeting modern JavaScript
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2020", "DOM", "DOM.Iterable"], // Including libraries for DOM and ES2020 features
     "module": "ESNext",
-    "skipLibCheck": true,
+    "skipLibCheck": true, // Skipping library checks for faster builds
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "isolatedModules": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "moduleResolution": "bundler", // Optimized for bundler environments like Vite
+    "allowImportingTsExtensions": true, // Enable importing with .ts and .tsx extensions
+    "isolatedModules": true, // Ensures module boundaries are respected
+    "moduleDetection": "force", // Enforces explicit module behavior
+    "noEmit": true, // No output files during the build
+    "jsx": "react-jsx", // Enables modern React JSX transformations
 
     /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "strict": true, // Enable all strict type-checking options
+    "noUnusedLocals": true, // Flag unused local variables
+    "noUnusedParameters": true, // Flag unused function parameters
+    "noFallthroughCasesInSwitch": true, // Prevent fallthrough in switch statements
+    "noUncheckedSideEffectImports": true // Ensure imports without checked side effects
   },
-  "include": ["src"]
+  "include": ["src"], // Include all files in the src directory
+  "references": [
+    { "path": "./tsconfig.node.json" } // Reference tsconfig.node.json for node-specific configurations
+  ]
 }
